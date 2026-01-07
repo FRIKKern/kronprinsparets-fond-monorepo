@@ -16,12 +16,16 @@ type MobileSidebarDrawerProps = {
   activities?: NavItem[];
   games?: NavItem[];
   currentPath?: string;
+  title?: string;
+  children?: React.ReactNode;
 };
 
 export function MobileSidebarDrawer({ 
   sections = [], 
   activities = [], 
-  games = [] 
+  games = [],
+  title,
+  children
 }: MobileSidebarDrawerProps) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -53,7 +57,7 @@ export function MobileSidebarDrawer({
           onClick={(e) => e.stopPropagation()}
         >
           <div className="p-4 flex items-center justify-between border-b border-[var(--current-theme-color-300)]">
-            <h2 className="font-bold">Håndboka</h2>
+            <h2 className="font-bold">{title || "Håndboka"}</h2>
             <button
               onClick={() => setIsOpen(false)}
               className="p-2 hover:bg-[var(--current-theme-color-200)] rounded"
@@ -63,11 +67,13 @@ export function MobileSidebarDrawer({
             </button>
           </div>
           <div className="p-4">
-            <HandbokaSidebar 
-              sections={sections}
-              activities={activities}
-              games={games}
-            />
+            {children ? children : (
+              <HandbokaSidebar 
+                sections={sections}
+                activities={activities}
+                games={games}
+              />
+            )}
           </div>
         </div>
       </div>

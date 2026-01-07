@@ -26,7 +26,10 @@ export default async function FilmerPage() {
   };
 
   // Group by category if available
-  const categories = [...new Set(videos.map((v: Video) => v.category).filter(Boolean))];
+  const categoryStrings: string[] = videos
+    .map((v: Video) => v.category)
+    .filter((cat: string | undefined): cat is string => typeof cat === "string" && cat.length > 0);
+  const categories: string[] = Array.from(new Set(categoryStrings));
   const hasCategories = categories.length > 0;
 
   return (

@@ -7,13 +7,13 @@ type VideoCardProps = {
   id: string;
   title: string;
   description?: string;
-  videoUrl: string;
+  videoUrl?: string;
   category?: string;
   index?: number;
 };
 
-export function VideoCard({ id, title, description, videoUrl, category, index = 0 }: VideoCardProps) {
-  const youtubeId = getYouTubeId(videoUrl);
+export function VideoCard({ id, title, description, videoUrl = "", category, index = 0 }: VideoCardProps) {
+  const youtubeId = videoUrl ? getYouTubeId(videoUrl) : null;
   const thumbnailUrl = youtubeId 
     ? `https://img.youtube.com/vi/${youtubeId}/mqdefault.jpg`
     : null;

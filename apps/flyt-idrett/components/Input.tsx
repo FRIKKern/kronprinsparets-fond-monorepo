@@ -38,7 +38,7 @@ export function Input({
         />
         {icon && (
           <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
-            <Icon icon={icon} size={18} stroke="var(--current-theme-color-800)" />
+            <Icon icon={icon} size={18} color="var(--current-theme-color-800)" />
           </div>
         )}
       </div>

@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kronprinsparets Fond Monorepo
+
+This is a Turborepo monorepo containing the FLYT program applications.
+
+## Structure
+
+```
+├── apps/
+│   ├── flyt-idrett/      # Sports program Next.js app
+│   ├── flyt-programmet/  # Main program Next.js app
+│   └── sanity-studio/    # Sanity CMS Studio
+├── packages/
+│   └── ui/               # Shared UI components package
+└── turbo.json            # Turborepo configuration
+```
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- pnpm 9+
+
+### Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Run all apps in development mode:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm dev
+```
 
-## Learn More
+Run a specific app:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm dev --filter=flyt-idrett
+pnpm dev --filter=flyt-programmet
+pnpm dev --filter=sanity-studio
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Build
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Build all apps:
 
-## Deploy on Vercel
+```bash
+pnpm build
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Build a specific app:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+pnpm build --filter=flyt-idrett
+```
+
+## Apps
+
+### flyt-idrett
+
+The sports program application. Runs on port 3000 by default.
+
+### flyt-programmet
+
+The main program application. Runs on port 3002 by default.
+
+### sanity-studio
+
+Sanity CMS Studio for content management.
+
+## Packages
+
+### @kpf/ui
+
+Shared UI components package used by all apps. Contains:
+
+- Typography components (Heading1-6, Subtitle1-2, Body1-2, Caption)
+- Button component
+- Icon component
+- Footer component
+- SanityImage component
+- BlockContent component
+- ListView component
+- FileDownload component
+
+## Environment Variables
+
+Each app may require environment variables. Check individual app directories for `.env.example` files.
+
+Common variables:
+- `NEXT_PUBLIC_SANITY_PROJECT_ID` - Sanity project ID
+- `NEXT_PUBLIC_SANITY_DATASET` - Sanity dataset name

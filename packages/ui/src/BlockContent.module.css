@@ -1,0 +1,62 @@
+.blockContentWrapper h1 {
+  font-size: 3rem;
+  font-weight: normal;
+  line-height: 1.2em;
+  margin: 0;
+}
+
+.blockContentWrapper h2 {
+  font-size: 2.5rem;
+  font-weight: normal;
+  line-height: 1.2em;
+  margin: 0;
+}
+
+@media screen and (max-width: 800px) {
+  .blockContentWrapper h2 {
+    font-size: 1.5rem;
+  }
+}
+
+.blockContentWrapper h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.6em;
+  margin: 0;
+}
+
+.blockContentWrapper h4 {
+  font-size: 2rem;
+  font-weight: normal;
+  line-height: 1.2em;
+  margin: 0;
+}
+
+.blockContentWrapper h5 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2em;
+  margin: 0;
+}
+
+.blockContentWrapper h6 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2em;
+  margin: 0;
+}
+
+.blockContentWrapper p {
+  font-size: 1.125rem;
+  line-height: 1.6em;
+  margin: 0;
+}
+
+.blockContentWrapper p + p {
+  margin-top: 1em;
+}
+
+.blockContentWrapper * + * {
+  margin-top: 1em;
+}
+

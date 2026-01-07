@@ -1,0 +1,25 @@
+.omFlyt {
+  margin-right: calc(60% - 20em);
+  margin-left: calc(40% - 20em);
+  width: 40em;
+  max-width: 90%;
+  padding-top: 5%;
+  padding-bottom: 20%;
+}
+
+.omFlyt img {
+  margin: 2rem 0;
+  width: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+  .omFlyt {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.omFlyt * + * {
+  margin-top: 1em;
+}
+

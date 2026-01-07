@@ -1,0 +1,46 @@
+.groups {
+  margin: 1rem 0 2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.group {
+  position: relative;
+  list-style-type: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.group + .group {
+  margin-left: 1rem;
+}
+
+.group button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 0;
+}
+
+.group::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-skifer-900);
+  opacity: 0;
+  border-radius: 5px;
+  transform: translateY(2px);
+  transition: transform 200ms ease-in-out, opacity 200ms ease-in-out;
+  will-change: transform, opacity;
+}
+
+.group.selected::before,
+.group:hover::before {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+

@@ -1,7 +1,6 @@
 {
   "buildCommand": "pnpm --filter @kpf/flyt-idrett build",
   "installCommand": "pnpm install --frozen-lockfile",
-  "framework": "nextjs",
-  "outputDirectory": "apps/flyt-idrett/.next"
+  "framework": "nextjs"
 }
 

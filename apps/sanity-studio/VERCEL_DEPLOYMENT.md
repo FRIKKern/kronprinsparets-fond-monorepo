@@ -2,27 +2,41 @@
 
 This guide explains how to deploy the Sanity Studio to Vercel.
 
-## Option 1: Deploy from Repository Root (Recommended for Monorepo)
+## Option 1: Deploy from App Directory (Current Configuration)
 
-1. Go to [Vercel Dashboard](https://vercel.com/new)
-2. Import your repository
-3. Configure the project:
-   - **Root Directory**: Leave blank (repository root)
-   - **Framework Preset**: Other
-   - **Build Command**: `pnpm --filter @kpf/sanity-studio build` (auto-detected from vercel.json)
-   - **Install Command**: `pnpm install --frozen-lockfile` (auto-detected from vercel.json)
-   - **Output Directory**: `apps/sanity-studio/dist` (auto-detected from vercel.json)
-
-## Option 2: Deploy from App Directory
+The `vercel.json` is configured for deploying from `apps/sanity-studio` directory.
 
 1. Go to [Vercel Dashboard](https://vercel.com/new)
 2. Import your repository
 3. Configure the project:
    - **Root Directory**: `apps/sanity-studio`
    - **Framework Preset**: Other
-   - **Build Command**: `pnpm build` (or `cd ../.. && pnpm install && pnpm --filter @kpf/sanity-studio build`)
-   - **Install Command**: `cd ../.. && pnpm install --frozen-lockfile`
-   - **Output Directory**: `dist`
+   - **Build Command**: `cd ../.. && pnpm install --frozen-lockfile && pnpm --filter @kpf/sanity-studio build` (auto-detected from vercel.json)
+   - **Install Command**: `cd ../.. && pnpm install --frozen-lockfile` (auto-detected from vercel.json)
+   - **Output Directory**: `dist` (auto-detected from vercel.json)
+
+## Option 2: Deploy from Repository Root
+
+If you prefer to deploy from the repository root, update `vercel.json`:
+
+```json
+{
+  "buildCommand": "pnpm --filter @kpf/sanity-studio build",
+  "installCommand": "pnpm install --frozen-lockfile",
+  "outputDirectory": "apps/sanity-studio/dist",
+  "framework": null,
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
+```
+
+Then configure in Vercel:
+- **Root Directory**: Leave blank (repository root)
+- **Output Directory**: `apps/sanity-studio/dist`
 
 ## Environment Variables
 

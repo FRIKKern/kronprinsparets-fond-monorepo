@@ -98,7 +98,7 @@ export default async function SporsmalOgSvarPage() {
           Vi hjelper deg gjerne med spørsmål om Flyt Idrett.
         </Body1>
         <a 
-          href="mailto:kontakt@flytidrett.no"
+          href="mailto:silje@kppfond.no"
           className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[var(--current-theme-color-500)] text-white font-medium hover:bg-[var(--current-theme-color-600)] transition-colors"
         >
           <Icon icon="email" size={18} />

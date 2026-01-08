@@ -2,7 +2,7 @@ import { client } from "@/lib/sanity";
 import { ALL_VIDEOS_QUERY, SECTION_QUERY } from "@/lib/queries";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { VideoPlayer } from "@/components/VideoPlayer";
-import { PdfDownload } from "@/components/PdfDownload";
+import { PdfDownloads } from "@/components/PdfDownload";
 import { PrevNextNav } from "@/components/PrevNextNav";
 import { Heading1, Body1 } from "@kpf/ui";
 import { notFound } from "next/navigation";
@@ -59,12 +59,13 @@ export default async function VideoPage({ params }: { params: Promise<{ id: stri
         )}
       </div>
 
-      {/* PDF Download - video PDF or section PDF */}
+      {/* PDF Download - video PDFs + section PDFs */}
       <div className="mb-8">
-        <PdfDownload 
+        <PdfDownloads 
+          pdfFiles={[...(video.pdfFiles || []), ...(section?.pdfFiles || [])]}
           pdfFile={video.pdfFile || section?.pdfFile}
-          title="Last ned PDF"
-          description={video.pdfFile ? "Full dokumentasjon for denne videoen" : "Full dokumentasjon"}
+          title={video.pdfFile ? video.pdfTitle : section?.pdfTitle}
+          description={video.pdfFile ? video.pdfDescription : section?.pdfDescription}
         />
       </div>
 
@@ -79,4 +80,3 @@ export default async function VideoPage({ params }: { params: Promise<{ id: stri
     </>
   );
 }
-

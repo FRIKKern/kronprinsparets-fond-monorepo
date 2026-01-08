@@ -2,7 +2,7 @@ import { client } from "@/lib/sanity";
 import { SECTION_QUERY } from "@/lib/queries";
 import { Icon } from "@/components/Icon";
 import { VideoPlayer } from "@/components/VideoPlayer";
-import { PdfDownload } from "@/components/PdfDownload";
+import { PdfDownloads } from "@/components/PdfDownload";
 import { Heading1, Body1, BlockContent } from "@kpf/ui";
 import Link from "next/link";
 
@@ -91,10 +91,11 @@ export default async function ForeldrePage() {
 
       {/* PDF Download */}
       <div className="mt-10" style={{ animationDelay: "0.3s" }}>
-        <PdfDownload 
+        <PdfDownloads 
+          pdfFiles={section?.pdfFiles}
           pdfFile={section?.pdfFile}
-          title="Last ned foreldreinfo (PDF)"
-          description="Del med foreldre i din gruppe"
+          title={section?.pdfTitle}
+          description={section?.pdfDescription}
         />
       </div>
     </>

@@ -3,7 +3,7 @@ import { SECTION_QUERY } from "@/lib/queries";
 import { LessonCard } from "@/components/LessonCard";
 import { Button } from "@/components/Button";
 import { Icon } from "@/components/Icon";
-import { PdfDownload } from "@/components/PdfDownload";
+import { PdfDownloads } from "@/components/PdfDownload";
 import Link from "next/link";
 
 async function getTrenerhandaData() {
@@ -94,10 +94,11 @@ export default async function TrenerhandaPage() {
       )}
 
       <div className="mt-10" style={{ animationDelay: "0.25s" }}>
-        <PdfDownload
+        <PdfDownloads
+          pdfFiles={section.pdfFiles}
           pdfFile={section.pdfFile}
-          title="Last ned PDF"
-          description="Full dokumentasjon for Trenerhånda"
+          title={section.pdfTitle}
+          description={section.pdfDescription}
         />
       </div>
     </>

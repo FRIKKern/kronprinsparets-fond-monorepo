@@ -7,6 +7,9 @@ type LayoutProps = {
   standardPadding?: boolean;
   maxWidth?: boolean;
   themeColor: { name: string; value: number };
+  footerContactLabel?: string;
+  footerContactName?: string;
+  footerContactEmail?: string;
 };
 
 export function Layout({
@@ -14,6 +17,9 @@ export function Layout({
   standardPadding,
   maxWidth,
   themeColor,
+  footerContactLabel,
+  footerContactName,
+  footerContactEmail,
 }: LayoutProps) {
   // Generate CSS custom properties for theme
   const themeStyle = {
@@ -47,7 +53,11 @@ export function Layout({
       >
         {children}
       </main>
-      <Footer />
+      <Footer 
+        contactLabel={footerContactLabel}
+        contactName={footerContactName}
+        contactEmail={footerContactEmail}
+      />
     </div>
   );
 }

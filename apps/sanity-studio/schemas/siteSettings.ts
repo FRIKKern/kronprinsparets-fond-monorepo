@@ -33,6 +33,76 @@ export default defineType({
       ],
       description: "Referanser til Trenerhånda og Håndboka",
     }),
+    defineField({
+      name: "sectionCardsTitle",
+      title: "Tittel over seksjonskort",
+      type: "string",
+      initialValue: "Velg din vei inn",
+    }),
+    defineField({
+      name: "sectionCardsSubtitle",
+      title: "Undertekst over seksjonskort",
+      type: "string",
+      initialValue: "To innganger til samme mål: et trygt og inkluderende idrettsmiljø",
+    }),
+    defineField({
+      name: "featureBoxes",
+      title: "Feature-bokser",
+      description: "Bokser som vises på forsiden (f.eks. Kunnskapsbasert, For alle trenere, etc.)",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          name: "featureBox",
+          title: "Feature-boks",
+          fields: [
+            defineField({
+              name: "icon",
+              title: "Ikon",
+              type: "string",
+              description: "Ikonnavn (f.eks. book, users, lightbulb, star, heart, play)",
+              initialValue: "star",
+            }),
+            defineField({
+              name: "title",
+              title: "Tittel",
+              type: "string",
+            }),
+            defineField({
+              name: "description",
+              title: "Beskrivelse",
+              type: "text",
+              rows: 2,
+            }),
+          ],
+          preview: {
+            select: {
+              title: "title",
+              subtitle: "description",
+            },
+          },
+        },
+      ],
+    }),
+    defineField({
+      name: "footerContactLabel",
+      title: "Footer kontaktetikett",
+      type: "string",
+      description: "Teksten før kontaktpersonens navn (f.eks. 'Kontaktperson:')",
+      initialValue: "Kontaktperson:",
+    }),
+    defineField({
+      name: "footerContactName",
+      title: "Footer kontaktperson navn",
+      type: "string",
+      initialValue: "Silje Mørtvedt",
+    }),
+    defineField({
+      name: "footerContactEmail",
+      title: "Footer kontakt e-post",
+      type: "string",
+      initialValue: "silje@kppfond.no",
+    }),
   ],
   preview: {
     select: {

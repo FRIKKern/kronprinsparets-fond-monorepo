@@ -7,7 +7,7 @@ import { Button, Icon } from "@kpf/ui";
 import { cn } from "@/lib/helpers";
 import styles from "./NavClient.module.css";
 
-type NavItem = { href: string; name: string };
+type NavItem = { href: string; name: string; external?: boolean };
 
 export function NavClient({
   navigationItems,
@@ -56,9 +56,21 @@ export function NavClient({
       >
         {navigationItems.map((item, index) => (
           <li key={item.href || `nav-item-${index}`} className={cn("min-[851px]:inline-block", styles.navItem)}>
-            <Button variant="tertiary" href={item.href}>
-              {item.name}
-            </Button>
+            {item.external ? (
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 px-4 py-2 text-sm font-medium hover:opacity-70 transition-opacity"
+              >
+                {item.name}
+                <Icon icon="arrowRight" size={14} className="-rotate-45" />
+              </a>
+            ) : (
+              <Button variant="tertiary" href={item.href}>
+                {item.name}
+              </Button>
+            )}
           </li>
         ))}
       </ul>

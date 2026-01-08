@@ -26,7 +26,18 @@ export const SITE_SETTINGS_QUERY = `*[_type == "siteSettings"][0]{
     tagline,
     icon,
     themeColor
-  }
+  },
+  sectionCardsTitle,
+  sectionCardsSubtitle,
+  featureBoxes[]{
+    _key,
+    icon,
+    title,
+    description
+  },
+  footerContactLabel,
+  footerContactName,
+  footerContactEmail
 }`;
 
 // All sections query

@@ -22,7 +22,14 @@ export default async function HomePage() {
   const mainSections = siteSettings?.mainSections || [];
 
   return (
-    <Layout themeColor={themeColor} standardPadding maxWidth>
+    <Layout 
+      themeColor={themeColor} 
+      standardPadding 
+      maxWidth
+      footerContactLabel={siteSettings?.footerContactLabel}
+      footerContactName={siteSettings?.footerContactName}
+      footerContactEmail={siteSettings?.footerContactEmail}
+    >
       <HeroSection>
         <HeroTitle>FLYT Idrett</HeroTitle>
         
@@ -51,10 +58,10 @@ export default async function HomePage() {
       <section className="py-16 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-semibold text-[var(--current-theme-color-900)] tracking-tight">
-            Velg din vei inn
+            {siteSettings?.sectionCardsTitle || "Velg din vei inn"}
           </h2>
           <p className="mt-3 text-lg ">
-            To innganger til samme mål: et trygt og inkluderende idrettsmiljø
+            {siteSettings?.sectionCardsSubtitle || "To innganger til samme mål: et trygt og inkluderende idrettsmiljø"}
           </p>
         </div>
 
@@ -95,24 +102,38 @@ export default async function HomePage() {
       {/* Features Section */}
       <section className="py-20 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <FeatureItem
-            icon="book"
-            title="Kunnskapsbasert"
-            description="Bygget på forskning om positiv ungdomsutvikling og styrkebasert tenkning."
-            delay={0}
-          />
-          <FeatureItem
-            icon="users"
-            title="For alle trenere"
-            description="Uansett idrett, nivå eller erfaring – verktøy som virker i praksis."
-            delay={1}
-          />
-          <FeatureItem
-            icon="lightbulb"
-            title="Lett tilgjengelig"
-            description="Korte videoer, klare tips og konkrete aktiviteter du kan bruke med en gang."
-            delay={2}
-          />
+          {(siteSettings?.featureBoxes && siteSettings.featureBoxes.length > 0) ? (
+            siteSettings.featureBoxes.map((feature: { _key: string; icon?: string; title: string; description: string }, index: number) => (
+              <FeatureItem
+                key={feature._key}
+                icon={feature.icon || "star"}
+                title={feature.title}
+                description={feature.description}
+                delay={index}
+              />
+            ))
+          ) : (
+            <>
+              <FeatureItem
+                icon="book"
+                title="Kunnskapsbasert"
+                description="Bygget på forskning om positiv ungdomsutvikling og styrkebasert tenkning."
+                delay={0}
+              />
+              <FeatureItem
+                icon="users"
+                title="For alle trenere"
+                description="Uansett idrett, nivå eller erfaring – verktøy som virker i praksis."
+                delay={1}
+              />
+              <FeatureItem
+                icon="lightbulb"
+                title="Lett tilgjengelig"
+                description="Korte videoer, klare tips og konkrete aktiviteter du kan bruke med en gang."
+                delay={2}
+              />
+            </>
+          )}
         </div>
       </section>
     </Layout>

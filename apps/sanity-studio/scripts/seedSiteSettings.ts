@@ -47,6 +47,37 @@ export async function seedSiteSettings(sectionIds?: Record<string, string>) {
         },
       ],
       mainSections,
+      // Section cards heading
+      sectionCardsTitle: "Velg din vei inn",
+      sectionCardsSubtitle: "To innganger til samme mål: et trygt og inkluderende idrettsmiljø",
+      // Feature boxes
+      featureBoxes: [
+        {
+          _type: "featureBox",
+          _key: "feature1",
+          icon: "book",
+          title: "Kunnskapsbasert",
+          description: "Bygget på forskning om positiv ungdomsutvikling og styrkebasert tenkning.",
+        },
+        {
+          _type: "featureBox",
+          _key: "feature2",
+          icon: "users",
+          title: "For alle trenere",
+          description: "Uansett idrett, nivå eller erfaring – verktøy som virker i praksis.",
+        },
+        {
+          _type: "featureBox",
+          _key: "feature3",
+          icon: "lightbulb",
+          title: "Lett tilgjengelig",
+          description: "Korte videoer, klare tips og konkrete aktiviteter du kan bruke med en gang.",
+        },
+      ],
+      // Footer contact info
+      footerContactLabel: "Kontaktperson:",
+      footerContactName: "Silje Mørtvedt",
+      footerContactEmail: "silje@kppfond.no",
     }
   );
 
@@ -63,7 +94,60 @@ export async function seedSiteSettings(sectionIds?: Record<string, string>) {
     }
   }
 
+  // Update existing siteSettings with new fields if they don't exist
+  try {
+    await client
+      .patch("siteSettings")
+      .setIfMissing({
+        sectionCardsTitle: "Velg din vei inn",
+        sectionCardsSubtitle: "To innganger til samme mål: et trygt og inkluderende idrettsmiljø",
+        featureBoxes: [
+          {
+            _type: "featureBox",
+            _key: "feature1",
+            icon: "book",
+            title: "Kunnskapsbasert",
+            description: "Bygget på forskning om positiv ungdomsutvikling og styrkebasert tenkning.",
+          },
+          {
+            _type: "featureBox",
+            _key: "feature2",
+            icon: "users",
+            title: "For alle trenere",
+            description: "Uansett idrett, nivå eller erfaring – verktøy som virker i praksis.",
+          },
+          {
+            _type: "featureBox",
+            _key: "feature3",
+            icon: "lightbulb",
+            title: "Lett tilgjengelig",
+            description: "Korte videoer, klare tips og konkrete aktiviteter du kan bruke med en gang.",
+          },
+        ],
+        footerContactLabel: "Kontaktperson:",
+        footerContactName: "Silje Mørtvedt",
+        footerContactEmail: "silje@kppfond.no",
+      })
+      .commit();
+    console.log("✅ Updated siteSettings with feature boxes and footer");
+  } catch {
+    console.log("⚠️  Could not update feature boxes and footer (may already be set)");
+  }
+
   console.log("✅ Site Settings seeded");
   return siteSettings;
+}
+
+// Run if called directly
+if (require.main === module) {
+  seedSiteSettings()
+    .then(() => {
+      console.log("🎉 Done!");
+      process.exit(0);
+    })
+    .catch((error) => {
+      console.error("❌ Error:", error);
+      process.exit(1);
+    });
 }
 

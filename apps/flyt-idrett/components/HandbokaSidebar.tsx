@@ -28,7 +28,7 @@ function getSectionHref(slug: string): string {
     "styrkebasert-tenkesett": "/handboka/styrkebasert-tenkesett",
     "anerkjennende-kommunikasjon": "/handboka/anerkjennende-kommunikasjon",
     "aktiviteter": "/handboka/aktiviteter",
-    "lekebank": "/handboka/lekebank",
+    "leker": "/handboka/leker",
     "foreldre": "/handboka/foreldre",
     "sporsmal-og-svar": "/handboka/sporsmal-og-svar",
   };
@@ -144,9 +144,9 @@ export function HandbokaSidebar({
 }: HandbokaSidebarProps) {
   const pathname = usePathname();
   
-  // Check if we're in aktiviteter or lekebank sections
+  // Check if we're in aktiviteter or leker sections
   const isInAktiviteter = pathname.startsWith("/handboka/aktiviteter");
-  const isInLekebank = pathname.startsWith("/handboka/lekebank");
+  const isInLeker = pathname.startsWith("/handboka/leker");
 
   return (
     <aside className="w-64 flex-shrink-0 hidden md:block">
@@ -195,18 +195,18 @@ export function HandbokaSidebar({
               );
             }
             
-            // Special handling for Lekebank - show all games
-            if (item.slug.current === "lekebank") {
+            // Special handling for Leker - show all games
+            if (item.slug.current === "leker") {
               return (
                 <CollapsibleSection
                   key={item._id}
                   title={item.title}
                   iconName={item.iconName}
-                  href="/handboka/lekebank"
-                  isActiveSection={isInLekebank}
+                  href="/handboka/leker"
+                  isActiveSection={isInLeker}
                 >
                   {games.map((game) => {
-                    const gameHref = `/handboka/lekebank/${game.slug.current}`;
+                    const gameHref = `/handboka/leker/${game.slug.current}`;
                     const isGameActive = pathname === gameHref;
                     return (
                       <Link

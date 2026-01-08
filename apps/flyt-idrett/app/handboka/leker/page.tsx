@@ -19,7 +19,7 @@ type Game = {
 
 export const revalidate = 30;
 
-export default async function LekebankPage() {
+export default async function LekerPage() {
   const games = await getAllGames();
 
   return (
@@ -28,7 +28,7 @@ export default async function LekebankPage() {
       {/* <Breadcrumbs
         items={[
           { label: "Håndboka", href: "/handboka" },
-          { label: "Lekebank" },
+          { label: "Leker" },
         ]}
       /> */}
 
@@ -41,7 +41,7 @@ export default async function LekebankPage() {
               <Icon icon="star" size={28} className="" />
             </div>
             <div>
-              <Heading1 className="text-[var(--current-theme-color-900)]">Lekebank</Heading1>
+              <Heading1 className="text-[var(--current-theme-color-900)]">Leker</Heading1>
               <Body1 className="text-[var(--current-theme-color-800)]">
                 {games.length} raske leker med lav terskel
               </Body1>
@@ -62,7 +62,7 @@ export default async function LekebankPage() {
               key={game._id}
               title={game.title}
               description={game.description}
-              href={`/handboka/lekebank/${game.slug.current}`}
+              href={`/handboka/leker/${game.slug.current}`}
               index={index}
             />
           ))}

@@ -13,12 +13,14 @@ export default defineType({
     }),
     defineField({
       name: "slug",
-      title: "Slug",
+      title: "Slug (URL-sti)",
       type: "slug",
       options: {
         source: "title",
       },
+      description: "⚠️ IKKE ENDRE DETTE! Slug er koblet til URL-strukturen og koden. Endring vil ødelegge navigasjon og lenker på nettsiden.",
       validation: (Rule) => Rule.required(),
+      readOnly: true,
     }),
     defineField({
       name: "tagline",

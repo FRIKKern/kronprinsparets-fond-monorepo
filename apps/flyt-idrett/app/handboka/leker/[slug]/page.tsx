@@ -51,7 +51,7 @@ export default async function GamePage({
       <Breadcrumbs
         items={[
           { label: "Håndboka", href: "/handboka" },
-          { label: "Lekebank", href: "/handboka/lekebank" },
+          { label: "Leker", href: "/handboka/leker" },
           { label: game.title },
         ]}
       />
@@ -98,7 +98,7 @@ export default async function GamePage({
           <div>
             <Body1 className="font-semibold mb-1">Tips</Body1>
             <Body1 className="text-sm text-[var(--current-theme-color-800)]">
-              Lekene i Lekebank er enkle og trenger lite forklaring. Prøv å la barna selv finne ut av reglene – det skaper engasjement!
+              Lekene er enkle og trenger lite forklaring. Prøv å la barna selv finne ut av reglene – det skaper engasjement!
             </Body1>
           </div>
         </div>
@@ -115,11 +115,11 @@ export default async function GamePage({
 
       {/* Navigation */}
       <PrevNextNav
-        prevHref={prev ? `/handboka/lekebank/${prev.slug.current}` : undefined}
+        prevHref={prev ? `/handboka/leker/${prev.slug.current}` : undefined}
         prevLabel={prev?.title}
-        nextHref={next ? `/handboka/lekebank/${next.slug.current}` : undefined}
+        nextHref={next ? `/handboka/leker/${next.slug.current}` : undefined}
         nextLabel={next?.title}
-        backHref="/handboka/lekebank"
+        backHref="/handboka/leker"
         backLabel="Alle leker"
       />
     </>

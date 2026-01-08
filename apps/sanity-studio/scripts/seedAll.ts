@@ -32,7 +32,7 @@ async function seedAll() {
     await seedActivities(sectionIds);
     console.log("");
 
-    // 6. Seed Games (for Lekebank)
+    // 6. Seed Games (for Leker)
     await seedGames(sectionIds);
     console.log("");
 

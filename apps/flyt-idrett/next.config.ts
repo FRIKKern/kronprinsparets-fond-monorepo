@@ -55,6 +55,17 @@ const nextConfig: NextConfig = {
         destination: "/trenerhanda/:path*",
         permanent: true,
       },
+      // Redirect old lekebank URL to new leker URL
+      {
+        source: "/handboka/lekebank",
+        destination: "/handboka/leker",
+        permanent: true,
+      },
+      {
+        source: "/handboka/lekebank/:path*",
+        destination: "/handboka/leker/:path*",
+        permanent: true,
+      },
     ];
   },
 };

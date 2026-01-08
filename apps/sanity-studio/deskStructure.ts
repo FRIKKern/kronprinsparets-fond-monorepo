@@ -146,9 +146,9 @@ export const deskStructure = (S: StructureBuilder) =>
                     ])
                 ),
 
-              // Lekebank
+              // Leker
               S.listItem()
-                .title("Lekebank")
+                .title("Leker")
                 .icon(StarIcon)
                 .child(
                   S.documentTypeList("game")

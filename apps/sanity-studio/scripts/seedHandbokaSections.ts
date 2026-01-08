@@ -127,8 +127,8 @@ export async function seedHandbokaSections() {
     },
     {
       _type: "section",
-      title: "Lekebank",
-      slug: { current: "lekebank" },
+      title: "Leker",
+      slug: { current: "leker" },
       tagline: "Leker for alle anledninger",
       description: "En samling av leker som skaper glede og fellesskap.",
       iconName: "lightbulb",

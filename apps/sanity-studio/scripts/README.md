@@ -63,7 +63,7 @@ pnpm tsx scripts/seedFAQs.ts
 2. **seedSections.ts**: Oppretter hovedseksjoner (Trenerhanda, Håndboka, Metodikk, Foreldre)
 3. **seedLessons.ts**: Oppretter leksjoner for Trenerhanda (Oppstart, Vi hilser, Vi heier, etc.)
 4. **seedActivities.ts**: Oppretter aktiviteter kategorisert under Handboka
-5. **seedGames.ts**: Oppretter leker for Lekebank
+5. **seedGames.ts**: Oppretter leker for Leker-seksjonen
 6. **seedVideos.ts**: Oppretter videoer for Filmer-seksjonen
 7. **seedFAQs.ts**: Oppretter spørsmål og svar
 

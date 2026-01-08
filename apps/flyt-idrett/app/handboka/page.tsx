@@ -19,7 +19,7 @@ function getSectionHref(slug: string): string {
     "styrkebasert-tenkesett": "/handboka/styrkebasert-tenkesett",
     "anerkjennende-kommunikasjon": "/handboka/anerkjennende-kommunikasjon",
     "aktiviteter": "/handboka/aktiviteter",
-    "lekebank": "/handboka/lekebank",
+    "leker": "/handboka/leker",
     "foreldre": "/handboka/foreldre",
     "sporsmal-og-svar": "/handboka/sporsmal-og-svar",
   };

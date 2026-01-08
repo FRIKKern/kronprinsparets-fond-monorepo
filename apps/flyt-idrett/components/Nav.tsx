@@ -35,7 +35,7 @@ export async function Nav() {
   // Add external link to Flyt Programmet
   navigationItems.push({
     href: "https://flytprogrammet.no/",
-    name: "Flyt Programmet",
+    name: "Flytprogrammet",
     external: true,
   });
 

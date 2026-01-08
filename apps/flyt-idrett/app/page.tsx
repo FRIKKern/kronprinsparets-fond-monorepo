@@ -44,7 +44,7 @@ export default async function HomePage() {
         )}
         
         <HeroActions>
-          <Button href="/trenerhanda" variant="primary" size="lg">
+          <Button href="/trenerhanda" variant="secondary" size="lg">
             Kom i gang
             <Icon icon="arrowRight" size={18} />
           </Button>

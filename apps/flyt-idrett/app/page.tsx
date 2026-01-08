@@ -34,7 +34,7 @@ export default async function HomePage() {
       footerContactEmail={siteSettings?.footerContactEmail}
     >
       <HeroSection>
-        <HeroTitle>FLYT Idrett</HeroTitle>
+        <HeroTitle>Flyt Idrett</HeroTitle>
         
         {siteSettings?.landingPageIntro ? (
           <HeroDescription>
@@ -52,7 +52,7 @@ export default async function HomePage() {
             <Icon icon="arrowRight" size={18} />
           </Button>
           <Button href="/handboka" variant="secondary" size="lg">
-            Håndboka
+            Utforsk Håndbok
           </Button>
         </HeroActions>
       </HeroSection>

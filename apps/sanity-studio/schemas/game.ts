@@ -40,6 +40,47 @@ export default defineType({
         accept: ".pdf",
       },
     }),
+    defineField({
+      name: "pdfFiles",
+      title: "PDF-filer",
+      type: "array",
+      description: "Flere PDF-filer (valgfritt)",
+      of: [
+        {
+          type: "object",
+          fields: [
+            {
+              name: "file",
+              title: "PDF-fil",
+              type: "file",
+              options: { accept: ".pdf" },
+            },
+            {
+              name: "title",
+              title: "PDF-tittel",
+              type: "string",
+            },
+            {
+              name: "description",
+              title: "PDF-beskrivelse",
+              type: "string",
+            },
+          ],
+        },
+      ],
+    }),
+    defineField({
+      name: "pdfTitle",
+      title: "PDF-tittel",
+      type: "string",
+      description: "Tittel vist ved PDF-nedlasting (valgfritt)",
+    }),
+    defineField({
+      name: "pdfDescription",
+      title: "PDF-beskrivelse",
+      type: "string",
+      description: "Beskrivelse vist ved PDF-nedlasting (valgfritt)",
+    }),
   ],
   preview: {
     select: {
@@ -47,4 +88,3 @@ export default defineType({
     },
   },
 });
-

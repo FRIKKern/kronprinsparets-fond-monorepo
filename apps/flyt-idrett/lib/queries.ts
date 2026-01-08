@@ -73,6 +73,19 @@ export const SECTION_QUERY = `*[_type == "section" && slug.current == $slug][0]{
       extension
     }
   },
+  pdfFiles[]{
+    file{
+      asset{
+        _ref,
+        _type,
+        extension
+      }
+    },
+    title,
+    description
+  },
+  pdfTitle,
+  pdfDescription,
   content,
   parentSection->{
     _id,
@@ -104,6 +117,19 @@ export const LESSON_QUERY = `*[_type == "lesson" && slug.current == $slug][0]{
       extension
     }
   },
+  pdfFiles[]{
+    file{
+      asset{
+        _ref,
+        _type,
+        extension
+      }
+    },
+    title,
+    description
+  },
+  pdfTitle,
+  pdfDescription,
   content,
   tips,
   relatedContent[]->{
@@ -129,6 +155,19 @@ export const ACTIVITY_QUERY = `*[_type == "activity" && slug.current == $slug][0
       extension
     }
   },
+  pdfFiles[]{
+    file{
+      asset{
+        _ref,
+        _type,
+        extension
+      }
+    },
+    title,
+    description
+  },
+  pdfTitle,
+  pdfDescription,
   category,
   duration,
   purpose,
@@ -176,7 +215,20 @@ export const GAME_QUERY = `*[_type == "game" && slug.current == $slug][0]{
       _type,
       extension
     }
-  }
+  },
+  pdfFiles[]{
+    file{
+      asset{
+        _ref,
+        _type,
+        extension
+      }
+    },
+    title,
+    description
+  },
+  pdfTitle,
+  pdfDescription
 }`;
 
 // All games
@@ -199,6 +251,19 @@ export const ALL_FAQS_QUERY = `*[_type == "faq"] | order(order asc) {
       extension
     }
   },
+  pdfFiles[]{
+    file{
+      asset{
+        _ref,
+        _type,
+        extension
+      }
+    },
+    title,
+    description
+  },
+  pdfTitle,
+  pdfDescription,
   order
 }`;
 
@@ -215,6 +280,19 @@ export const ALL_VIDEOS_QUERY = `*[_type == "video"] | order(title asc) {
       extension
     }
   },
+  pdfFiles[]{
+    file{
+      asset{
+        _ref,
+        _type,
+        extension
+      }
+    },
+    title,
+    description
+  },
+  pdfTitle,
+  pdfDescription,
   thumbnail,
   category
 }`;

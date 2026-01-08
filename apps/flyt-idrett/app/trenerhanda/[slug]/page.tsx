@@ -3,7 +3,7 @@ import { LESSON_QUERY, SECTION_QUERY } from "@/lib/queries";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { VideoPlayer } from "@/components/VideoPlayer";
 import { CrossLinkCard } from "@/components/CrossLinkCard";
-import { PdfDownload } from "@/components/PdfDownload";
+import { PdfDownloads } from "@/components/PdfDownload";
 import { Icon } from "@/components/Icon";
 import { PrevNextNav } from "@/components/PrevNextNav";
 import { Heading1, Body1, BlockContent } from "@kpf/ui";
@@ -123,10 +123,11 @@ export default async function TrenerhandaLessonPage({
 
       {/* PDF Download */}
       <div className="mb-10" style={{ animationDelay: "0.45s" }}>
-        <PdfDownload 
+        <PdfDownloads 
+          pdfFiles={lesson.pdfFiles}
           pdfFile={lesson.pdfFile}
-          title="Last ned PDF"
-          description="Full dokumentasjon for denne leksjonen"
+          title={lesson.pdfTitle}
+          description={lesson.pdfDescription}
         />
       </div>
 

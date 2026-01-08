@@ -5,7 +5,7 @@ import { MetadataChips } from "@/components/MetadataChips";
 import { StepList } from "@/components/StepList";
 import { ReflectionBox } from "@/components/ReflectionBox";
 import { TipsList } from "@/components/TipsList";
-import { PdfDownload } from "@/components/PdfDownload";
+import { PdfDownloads } from "@/components/PdfDownload";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { DecorativeShapes } from "@/components/DecorativeShapes";
 import { Icon } from "@/components/Icon";
@@ -133,10 +133,11 @@ export default async function ActivityPage({
 
       {/* PDF Download */}
       <div className="mb-8" style={{ animationDelay: "0.4s" }}>
-        <PdfDownload 
+        <PdfDownloads 
+          pdfFiles={activity.pdfFiles}
           pdfFile={activity.pdfFile}
-          title="Last ned PDF"
-          description="Full dokumentasjon for denne aktiviteten"
+          title={activity.pdfTitle}
+          description={activity.pdfDescription}
         />
       </div>
 

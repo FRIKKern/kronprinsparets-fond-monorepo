@@ -2,7 +2,7 @@ import { client } from "@/lib/sanity";
 import { GAME_QUERY, ALL_GAMES_QUERY } from "@/lib/queries";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { VideoPlayer } from "@/components/VideoPlayer";
-import { PdfDownload } from "@/components/PdfDownload";
+import { PdfDownloads } from "@/components/PdfDownload";
 import { PrevNextNav } from "@/components/PrevNextNav";
 import { DecorativeShapes } from "@/components/DecorativeShapes";
 import { Icon } from "@/components/Icon";
@@ -106,10 +106,11 @@ export default async function GamePage({
 
       {/* PDF Download */}
       <div className="mb-8" style={{ animationDelay: "0.35s" }}>
-        <PdfDownload 
+        <PdfDownloads 
+          pdfFiles={game.pdfFiles}
           pdfFile={game.pdfFile}
-          title="Last ned PDF"
-          description="Full dokumentasjon for denne leken"
+          title={game.pdfTitle}
+          description={game.pdfDescription}
         />
       </div>
 

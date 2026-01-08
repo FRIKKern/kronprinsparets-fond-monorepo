@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { cn } from "@/lib/helpers";
 import { Icon } from "./Icon";
-import { PdfDownload } from "./PdfDownload";
+import { PdfDownloads } from "./PdfDownload";
 import { BlockContent } from "@kpf/ui";
 
 type PdfFile = {
@@ -14,11 +14,20 @@ type PdfFile = {
   };
 };
 
+type PdfFileItem = {
+  file?: PdfFile | null;
+  title?: string | null;
+  description?: string | null;
+};
+
 type AccordionItem = {
   _id: string;
   question: string;
   answer: unknown; // Block content
   pdfFile?: PdfFile | null;
+  pdfTitle?: string | null;
+  pdfDescription?: string | null;
+  pdfFiles?: PdfFileItem[] | null;
 };
 
 type AccordionProps = {
@@ -111,12 +120,13 @@ function AccordionItemComponent({
               <div className=" leading-relaxed mb-4">
                 <BlockContent blocks={item.answer} />
               </div>
-              {item.pdfFile && (
+              {(item.pdfFiles?.length || item.pdfFile) && (
                 <div className="mt-4">
-                  <PdfDownload 
+                  <PdfDownloads 
+                    pdfFiles={item.pdfFiles}
                     pdfFile={item.pdfFile}
-                    title="Last ned PDF"
-                    description="Dokumentasjon for dette spørsmålet"
+                    title={item.pdfTitle || undefined}
+                    description={item.pdfDescription || undefined}
                   />
                 </div>
               )}

@@ -1,7 +1,7 @@
 import { client } from "@/lib/sanity";
 import { ALL_FAQS_QUERY, SECTION_QUERY } from "@/lib/queries";
 import { Accordion } from "@/components/Accordion";
-import { PdfDownload } from "@/components/PdfDownload";
+import { PdfDownloads } from "@/components/PdfDownload";
 import { DecorativeShapes } from "@/components/DecorativeShapes";
 import { Icon } from "@/components/Icon";
 import { Heading1, Body1 } from "@kpf/ui";
@@ -82,10 +82,11 @@ export default async function SporsmalOgSvarPage() {
 
       {/* PDF Download */}
       <div className="mt-10" style={{ animationDelay: "0.25s" }}>
-        <PdfDownload 
+        <PdfDownloads 
+          pdfFiles={section?.pdfFiles}
           pdfFile={section?.pdfFile}
-          title="Last ned PDF"
-          description="Full dokumentasjon med alle spørsmål og svar"
+          title={section?.pdfTitle}
+          description={section?.pdfDescription}
         />
       </div>
 
@@ -98,7 +99,7 @@ export default async function SporsmalOgSvarPage() {
           Vi hjelper deg gjerne med spørsmål om Flyt Idrett.
         </Body1>
         <a 
-          href="mailto:kontakt@flytidrett.no"
+          href="mailto:silje@kppfond.no"
           className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[var(--current-theme-color-500)] text-white font-medium hover:bg-[var(--current-theme-color-600)] transition-colors"
         >
           <Icon icon="email" size={18} />

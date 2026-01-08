@@ -3,7 +3,7 @@ import { Body1 } from "@kpf/ui";
 import { cn } from "@/lib/helpers";
 import { buildPdfUrl } from "@/lib/sanity";
 
-type PdfFile = {
+export type PdfFile = {
   asset?: {
     _ref: string;
     _type: string;
@@ -11,7 +11,21 @@ type PdfFile = {
   };
 };
 
+export type PdfFileItem = {
+  file?: PdfFile | null;
+  title?: string | null;
+  description?: string | null;
+};
+
 type PdfDownloadProps = {
+  pdfFile?: PdfFile | null;
+  title?: string;
+  description?: string;
+  className?: string;
+};
+
+type PdfDownloadsProps = {
+  pdfFiles?: PdfFileItem[] | null;
   pdfFile?: PdfFile | null;
   title?: string;
   description?: string;
@@ -56,6 +70,41 @@ export function PdfDownload({
         </a>
       </div>
     </div>
+  );
+}
+
+export function PdfDownloads({
+  pdfFiles,
+  pdfFile,
+  title,
+  description,
+  className,
+}: PdfDownloadsProps) {
+  const validPdfFiles = pdfFiles?.filter((file) => file?.file) || [];
+
+  if (validPdfFiles.length > 0) {
+    return (
+      <div className="space-y-4">
+        {validPdfFiles.map((file, index) => (
+          <PdfDownload
+            key={`${file.file?.asset?._ref || "pdf"}-${index}`}
+            pdfFile={file.file}
+            title={file.title || title}
+            description={file.description || description}
+            className={className}
+          />
+        ))}
+      </div>
+    );
+  }
+
+  return (
+    <PdfDownload
+      pdfFile={pdfFile}
+      title={title}
+      description={description}
+      className={className}
+    />
   );
 }
 

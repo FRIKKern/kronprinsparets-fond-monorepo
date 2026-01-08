@@ -3,6 +3,7 @@ import { SECTION_QUERY } from "@/lib/queries";
 import { LessonCard } from "@/components/LessonCard";
 import { Button } from "@/components/Button";
 import { Icon } from "@/components/Icon";
+import { PdfDownloads } from "@/components/PdfDownload";
 import Link from "next/link";
 
 async function getTrenerhandaData() {
@@ -91,6 +92,15 @@ export default async function TrenerhandaPage() {
           </p>
         </section>
       )}
+
+      <div className="mt-10" style={{ animationDelay: "0.25s" }}>
+        <PdfDownloads
+          pdfFiles={section.pdfFiles}
+          pdfFile={section.pdfFile}
+          title={section.pdfTitle}
+          description={section.pdfDescription}
+        />
+      </div>
     </>
   );
 }

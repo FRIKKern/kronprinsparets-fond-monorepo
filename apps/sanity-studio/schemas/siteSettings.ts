@@ -22,6 +22,38 @@ export default defineType({
       type: "blockContent",
     }),
     defineField({
+      name: "landingPageImages",
+      title: "Landingsside-bilder",
+      description: "Bilder som vises mellom hero og seksjonskort (valgfritt)",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          name: "landingPageImage",
+          title: "Landingsside-bilde",
+          fields: [
+            defineField({
+              name: "image",
+              title: "Bilde",
+              type: "image",
+              options: { hotspot: true },
+            }),
+            defineField({
+              name: "alt",
+              title: "Alt-tekst",
+              type: "string",
+            }),
+          ],
+          preview: {
+            select: {
+              title: "alt",
+              media: "image",
+            },
+          },
+        },
+      ],
+    }),
+    defineField({
       name: "mainSections",
       title: "Hovedseksjoner",
       type: "array",
@@ -110,4 +142,3 @@ export default defineType({
     },
   },
 });
-

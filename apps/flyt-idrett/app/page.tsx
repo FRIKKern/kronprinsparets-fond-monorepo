@@ -48,11 +48,11 @@ export default async function HomePage() {
         
         <HeroActions>
           <Button href="/trenerhanda" variant="secondary" size="lg">
-            Kom i gang
+            Trenerhånda
             <Icon icon="arrowRight" size={18} />
           </Button>
           <Button href="/handboka" variant="secondary" size="lg">
-            Utforsk Håndboka
+            Håndboka
           </Button>
         </HeroActions>
       </HeroSection>

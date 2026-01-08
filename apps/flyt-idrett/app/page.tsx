@@ -115,15 +115,15 @@ export default async function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto stagger-children">
             <SectionCard
               title="Trenerhånda"
-              tagline="Hva gjør jeg her og nå?"
-              description="Praktiske tips og verktøy for treneren på feltet. Raske svar når du trenger dem."
+              tagline="Et praktisk verktøy"
+              description="For trenere som vil jobbe mer systematisk med kulturen på laget."
               href="/trenerhanda"
               themeColor="krikkand-400"
             />
             <SectionCard
               title="Håndboka"
-              tagline="Hvorfor gjør vi det sånn?"
-              description="Fordypning, forståelse og felles språk. Teori og bakgrunn for god praksis."
+              tagline="Ressursbank"
+              description="Filmer, aktiviteter og leker, klare til bruk!"
               href="/handboka"
               themeColor="mose-400"
             />

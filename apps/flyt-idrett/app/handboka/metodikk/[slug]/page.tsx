@@ -10,6 +10,8 @@ async function getSectionData(slug: string) {
   return section;
 }
 
+export const revalidate = 30;
+
 export default async function MetodikkSectionPage({
   params,
 }: {

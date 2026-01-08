@@ -29,6 +29,8 @@ async function getActivityData(slug: string) {
   return { activity, prev, next };
 }
 
+export const revalidate = 30;
+
 export default async function ActivityPage({ 
   params 
 }: { 

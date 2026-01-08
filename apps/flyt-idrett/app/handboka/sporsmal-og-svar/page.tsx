@@ -14,6 +14,8 @@ async function getFAQData() {
   return { faqs: faqs || [], section };
 }
 
+export const revalidate = 30;
+
 export default async function SporsmalOgSvarPage() {
   const { faqs, section } = await getFAQData();
 

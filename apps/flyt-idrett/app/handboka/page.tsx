@@ -27,6 +27,8 @@ function getSectionHref(slug: string): string {
   return directRoutes[slug] || `/handboka/${slug}`;
 }
 
+export const revalidate = 30;
+
 export default async function HandbokaPage() {
   const { section, subsections } = await getHandbokaData();
 

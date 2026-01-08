@@ -23,6 +23,8 @@ async function getGameData(slug: string) {
   return { game, prev, next };
 }
 
+export const revalidate = 30;
+
 export default async function GamePage({ 
   params 
 }: { 

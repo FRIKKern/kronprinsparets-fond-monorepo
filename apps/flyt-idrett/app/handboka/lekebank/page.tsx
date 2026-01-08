@@ -17,6 +17,8 @@ type Game = {
   description?: unknown;
 };
 
+export const revalidate = 30;
+
 export default async function LekebankPage() {
   const games = await getAllGames();
 

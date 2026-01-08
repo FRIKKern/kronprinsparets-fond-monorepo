@@ -14,6 +14,8 @@ async function getFilmerData() {
   return { videos: videos || [], section };
 }
 
+export const revalidate = 30;
+
 export default async function FilmerPage() {
   const { videos, section } = await getFilmerData();
 

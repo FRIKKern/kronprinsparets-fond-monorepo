@@ -15,6 +15,8 @@ async function getLessonData(slug: string) {
   return { lesson, section };
 }
 
+export const revalidate = 30;
+
 export default async function TrenerhandaLessonPage({
   params,
 }: {

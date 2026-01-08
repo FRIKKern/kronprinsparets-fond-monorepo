@@ -28,6 +28,8 @@ async function getVideoData(id: string) {
   return { video, prev, next, section: filmerSection };
 }
 
+export const revalidate = 30;
+
 export default async function VideoPage({ params }: { params: Promise<{ id: string }> | { id: string } }) {
   const resolvedParams = await Promise.resolve(params);
   const data = await getVideoData(resolvedParams.id);

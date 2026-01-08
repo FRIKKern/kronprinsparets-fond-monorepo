@@ -8,6 +8,8 @@ import { Icon } from "@/components/Icon";
 import { BlockContent } from "@kpf/ui";
 import { getPageColor } from "@/lib/helpers";
 
+export const revalidate = 30;
+
 async function getLandingPageData() {
   const siteSettings = await client.fetch(SITE_SETTINGS_QUERY);
   return siteSettings;

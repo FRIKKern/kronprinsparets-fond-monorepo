@@ -11,6 +11,8 @@ async function getSectionData() {
   return section;
 }
 
+export const revalidate = 30;
+
 export default async function ForeldrePage() {
   const section = await getSectionData();
 

@@ -10,6 +10,8 @@ async function getTrenerhandaData() {
   return section;
 }
 
+export const revalidate = 30;
+
 export default async function TrenerhandaPage() {
   const section = await getTrenerhandaData();
 

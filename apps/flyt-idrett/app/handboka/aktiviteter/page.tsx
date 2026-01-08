@@ -33,6 +33,8 @@ const categoryConfig: Record<string, { label: string; icon: string; description:
   },
 };
 
+export const revalidate = 30;
+
 export default async function AktiviteterPage() {
   const activities = await getAllActivities();
 

@@ -7,6 +7,8 @@ import { Button } from "@/components/Button";
 import { Icon } from "@/components/Icon";
 import { BlockContent } from "@kpf/ui";
 import { getPageColor } from "@/lib/helpers";
+import { buildImageUrl } from "@/lib/sanity";
+import Image from "next/image";
 
 export const revalidate = 30;
 
@@ -20,6 +22,7 @@ export default async function HomePage() {
   const themeColor = getPageColor("/");
 
   const mainSections = siteSettings?.mainSections || [];
+  const landingPageImages = siteSettings?.landingPageImages || [];
 
   return (
     <Layout 
@@ -53,6 +56,35 @@ export default async function HomePage() {
           </Button>
         </HeroActions>
       </HeroSection>
+
+      {landingPageImages.length > 0 && (
+        <section className="py-10 animate-fade-in-up" style={{ animationDelay: "0.35s" }}>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {landingPageImages.map((item: { image?: unknown; alt?: string }, index: number) => {
+                const imageUrl = item.image ? buildImageUrl(item.image, 1400) : null;
+
+                if (!imageUrl) return null;
+
+                return (
+                  <div
+                    key={`${imageUrl}-${index}`}
+                    className="relative overflow-hidden rounded-3xl border border-[var(--current-theme-color-200)]/60 shadow-[var(--shadow-card)] aspect-[16/10] bg-white/70"
+                  >
+                    <Image
+                      src={imageUrl}
+                      alt={item.alt || "Landingsside bilde"}
+                      fill
+                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Section Cards */}
       <section className="py-16 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>

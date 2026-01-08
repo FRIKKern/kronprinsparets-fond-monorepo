@@ -19,9 +19,7 @@ export default async function HandbokaLayout({
 }) {
   const { section, navData } = await getHandbokaData();
   
-  const themeColor = section?.themeColor
-    ? getPageColor("", section.themeColor)
-    : getPageColor("/handboka");
+  const themeColor = getPageColor("", "mose-400");
 
   return (
     <Layout themeColor={themeColor} standardPadding maxWidth>

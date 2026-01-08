@@ -1,6 +1,7 @@
 import { client } from "@/lib/sanity";
 import { SECTION_QUERY } from "@/lib/queries";
 import { VideoPlayer } from "@/components/VideoPlayer";
+import { PdfDownload } from "@/components/PdfDownload";
 import { Heading1, Body1, BlockContent } from "@kpf/ui";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -42,7 +43,14 @@ export default async function MetodikkSectionPage({
       </div>
 
       {section.content && <BlockContent blocks={section.content} />}
+
+      <div className="mt-10">
+        <PdfDownload
+          pdfFile={section.pdfFile}
+          title="Last ned PDF"
+          description="Full dokumentasjon for denne siden"
+        />
+      </div>
     </>
   );
 }
-

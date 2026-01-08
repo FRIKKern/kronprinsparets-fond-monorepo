@@ -37,9 +37,10 @@ export function buildPdfUrl(pdfFile: any): string | null {
   if (!pdfFile?.asset?._ref) return null;
   
   // Sanity file URL pattern: https://cdn.sanity.io/files/{projectId}/{dataset}/{assetId}.{extension}
-  const assetId = pdfFile.asset._ref.replace("file-", "");
-  const extension = pdfFile.asset.extension || "pdf";
+  const ref = pdfFile.asset._ref.replace("file-", "");
+  const refParts = ref.split("-");
+  const extension = refParts.pop() || "pdf";
+  const assetId = refParts.join("-");
   
   return `https://cdn.sanity.io/files/${projectId}/${dataset}/${assetId}.${extension}`;
 }
-
